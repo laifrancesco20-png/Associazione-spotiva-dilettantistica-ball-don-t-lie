@@ -7,6 +7,7 @@ import BallDontLie from './pages/BallDontLie';
 import OpenRiviera from './pages/OpenRiviera';
 import IslandPadelTour from './pages/IslandPadelTour';
 import WorkInProgress from './pages/WorkInProgress';
+import NotFound from './pages/NotFound';
 import { AppRoutes } from './types';
 
 const App: React.FC = () => {
@@ -20,6 +21,7 @@ const App: React.FC = () => {
           <Route path={AppRoutes.OPEN_RIVIERA} element={<OpenRiviera />} />
           <Route path={AppRoutes.PADEL_TOUR} element={<IslandPadelTour />} />
           <Route path={AppRoutes.WIP} element={<WorkInProgress />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </HashRouter>

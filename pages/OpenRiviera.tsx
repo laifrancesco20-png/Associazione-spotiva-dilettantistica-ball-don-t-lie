@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
-import { Trophy, Users, Star, Camera, Calendar } from 'lucide-react';
+import { Trophy, Users, Star, Camera, Calendar, MapPin } from 'lucide-react';
 import { AppRoutes } from '../types';
 
 const OpenRiviera: React.FC = () => {
@@ -209,7 +209,7 @@ const OpenRiviera: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-6 mt-20">
             <Button 
               className="px-10 py-5 bg-[#FF6B35] hover:bg-[#e85a2a] text-lg"
-              onClick={() => window.open('https://drive.google.com/drive/folders/1P9iwsO8_joAiYVNAeboUNwTWWq3FFIqs', '_blank')}
+              onClick={() => window.open('https://drive.google.com/drive/folders/17zkVviDj63Il48DaLAZXhg1Ybn_83Zh9', '_blank')}
             >
               <Camera className="w-6 h-6 mr-2" />
               Galleria Completa

@@ -40,7 +40,7 @@ const Home: React.FC = () => {
             <Button onClick={handleScrollToCards} className="text-lg px-8">
               Scopri i tornei
             </Button>
-            <Button variant="outline" className="text-lg px-8">
+            <Button variant="outline" onClick={() => navigate(AppRoutes.PADEL_TOUR)} className="text-lg px-8">
               <Calendar className="w-5 h-5 mr-2" />
               Calendario 2026
             </Button>
