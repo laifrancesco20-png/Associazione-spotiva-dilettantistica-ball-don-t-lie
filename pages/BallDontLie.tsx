@@ -50,6 +50,7 @@ const BallDontLie: React.FC = () => {
                 <Calendar size={28} />
               </div>
               <div>
+                <h4 className="font-bold text-lg">30 Luglio - 2 Agosto 2026</h4>
                 <h4 className="font-bold text-lg">8 Edizioni</h4>
                 <p className="text-gray-600">Una storia di successo crescente</p>
               </div>
@@ -69,7 +70,7 @@ const BallDontLie: React.FC = () => {
               </div>
               <div>
                 <h4 className="font-bold text-lg">Location</h4>
-                <p className="text-gray-600">Parco Santa Giulia, Alghero</p>
+                <p className="text-gray-600">Campo da basket Giardini Manca, Alghero</p>
               </div>
             </div>
           </div>
