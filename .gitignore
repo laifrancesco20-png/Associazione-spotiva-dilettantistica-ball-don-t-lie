@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Cronologia AI Studio (non pubblicare)
+migrated_prompt_history

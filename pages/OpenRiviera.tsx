@@ -148,9 +148,12 @@ const OpenRiviera: React.FC = () => {
               <div className="md:flex items-center justify-between group flex-row-reverse">
                 <div className="absolute -left-[10px] md:left-auto md:left-1/2 md:-ml-[10px] w-8 h-8 rounded-full bg-[#FF6B35] border-4 border-white shadow-lg animate-pulse z-10"></div>
                 <div className="md:w-[45%] md:pl-10 text-left">
-                  <div className="text-lg font-bold text-[#FF6B35] mb-1">Prossimamente</div>
-                  <h3 className="text-3xl font-black text-[#FF6B35]">Verso il 2026</h3>
-                  <p className="text-gray-700 mt-3 font-medium italic text-lg leading-relaxed">Preparate le racchette. La prossima edizione supererà ogni aspettativa.</p>
+                  <div className="text-lg font-bold text-[#FF6B35] mb-1">Agosto 2026</div>
+                  <h3 className="text-3xl font-black text-[#FF6B35]">4° Edizione</h3>
+                  <p className="text-gray-700 mt-2 font-bold flex items-center gap-1">
+                    <MapPin size={18} /> Padel Club Alghero
+                  </p>
+                  <p className="text-gray-700 mt-3 font-medium italic text-lg leading-relaxed">La prossima edizione supererà ogni aspettativa. Alghero si prepara al grande show.</p>
                 </div>
                 <div className="hidden md:block md:w-[45%]"></div>
               </div>

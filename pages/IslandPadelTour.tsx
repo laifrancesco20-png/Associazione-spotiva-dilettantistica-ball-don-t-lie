@@ -5,14 +5,12 @@ import { Trophy, Calendar, MapPin, BarChart3, FileText, UserCheck } from 'lucide
 import { AppRoutes } from '../types';
 
 const stages = [
-  { id: 1, location: 'Olbia', club: 'Sporting Padel Olbia', date: 'Febbraio/Marzo' },
-  { id: 2, location: 'Sassari', club: 'Padel Sassari (Padel Park)', date: 'Marzo' },
-  { id: 3, location: 'Sassari', club: 'Sporting Padel Sassari', date: 'Aprile' },
-  { id: 4, location: 'Alghero', club: 'Padel Club Alghero', date: 'Maggio' },
-  { id: 5, location: 'Cagliari', club: 'DLF', date: 'Luglio' },
-  { id: 6, location: 'Cagliari', club: 'Sportlife', date: 'Settembre' },
-  { id: 7, location: 'Sassari', club: 'Muros Padel Club', date: 'Ottobre' },
-  { id: 8, location: 'Olbia', club: 'Sporting Padel Olbia', date: 'Novembre' },
+  { id: 1, location: 'Alghero', club: 'Padel Club Alghero', date: '21-24 Maggio' },
+  { id: 2, location: 'Stintino', club: 'Padel Cala Lupo', date: '26-28 Giugno' },
+  { id: 3, location: 'Sassari', club: 'Padel Park', date: '2-4 Ottobre' },
+  { id: 4, location: 'Olbia', club: 'Sporting Padel Olbia', date: '22-24 Ottobre' },
+  { id: 5, location: 'Sassari', club: 'Sporting Padel Sassari', date: '20-22 Novembre' },
+  { id: 6, location: 'Muros', club: 'Muros Padel Club', date: '18-20 Dicembre' },
 ];
 
 const IslandPadelTour: React.FC = () => {
@@ -23,8 +21,13 @@ const IslandPadelTour: React.FC = () => {
       {/* Hero */}
       <section className="bg-white pb-16 pt-10 px-4 text-center border-b border-gray-100">
         <div className="max-w-4xl mx-auto">
-          <div className="mx-auto w-24 h-24 bg-[#FF6B35] rounded-3xl rotate-3 flex items-center justify-center mb-10 shadow-xl">
-            <Trophy size={48} className="text-white" />
+          {/* Logo container ottimizzato - Più grande e senza sfondo forzato */}
+          <div className="mx-auto w-64 h-40 flex items-center justify-center mb-6">
+            <img 
+              src="https://i.postimg.cc/TYBF227B/Logo-The-Island-Padel-Tour-(3).png" 
+              alt="The Island Padel Tour Logo" 
+              className="w-full h-full object-contain filter drop-shadow-lg"
+            />
           </div>
           <h1 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tight mb-4">
             The Island <span className="text-[#FF6B35]">Padel Tour</span> 2026
@@ -130,7 +133,7 @@ const IslandPadelTour: React.FC = () => {
             <div className="relative z-10 text-center">
               <div className="text-xs text-[#FF6B35] font-bold uppercase tracking-widest mb-1">Luogo da definire</div>
               <span className="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-lg font-black block">
-                DICEMBRE 2026
+                GENNAIO 2027
               </span>
             </div>
           </div>
