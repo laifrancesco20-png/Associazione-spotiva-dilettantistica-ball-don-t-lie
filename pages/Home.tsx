@@ -102,7 +102,7 @@ const Home: React.FC = () => {
                 <h3 className="text-xl font-bold">The Island Padel Tour</h3>
               </div>
               <p className="text-gray-600">
-                Il circuito regionale che unisce la Sardegna. 10 tappe, un master finale, un'unica grande passione.
+                Il circuito regionale che unisce la Sardegna. 6 tappe, un master finale, un'unica grande passione.
               </p>
               <div className="mt-auto pt-2 flex items-center text-[#4A90E2] font-semibold">
                 Scopri il circuito <ArrowRight size={16} className="ml-2" />

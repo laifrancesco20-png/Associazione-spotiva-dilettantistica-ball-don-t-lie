@@ -138,7 +138,7 @@ const About: React.FC = () => {
             <div className="text-white text-xs uppercase tracking-widest font-bold">Montepremi Euro</div>
           </div>
           <div className="bg-[#1A202C] p-6 rounded-3xl text-center hover:bg-gray-800 transition-colors">
-            <div className="text-[#FF6B35] text-4xl font-black mb-1">9</div>
+            <div className="text-[#FF6B35] text-4xl font-black mb-1">6</div>
             <div className="text-white text-xs uppercase tracking-widest font-bold">Tappe Padel</div>
           </div>
           <div className="bg-[#1A202C] p-6 rounded-3xl text-center hover:bg-gray-800 transition-colors">

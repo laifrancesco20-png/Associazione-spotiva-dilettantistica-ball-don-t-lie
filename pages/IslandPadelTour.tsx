@@ -1,20 +1,17 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import { Trophy, Calendar, MapPin, BarChart3, FileText } from 'lucide-react';
-import { AppRoutes } from '../types';
 
 const stages = [
-  { id: 1, location: 'Alghero', club: 'Padel Club Alghero', date: '21-24 Maggio' },
-  { id: 2, location: 'Stintino', club: 'Padel Cala Lupo', date: '26-28 Giugno' },
-  { id: 3, location: 'Sassari', club: 'Padel Park', date: '2-4 Ottobre' },
-  { id: 4, location: 'Olbia', club: 'Sporting Padel Olbia', date: '22-24 Ottobre' },
-  { id: 5, location: 'Sassari', club: 'Sporting Padel Sassari', date: '20-22 Novembre' },
-  { id: 6, location: 'Muros', club: 'Muros Padel Club', date: '18-20 Dicembre' },
+  { id: 1, location: 'Alghero', club: 'Padel Club Alghero', date: 'Maggio' },
+  { id: 2, location: 'Stintino', club: 'Padel Cala Lupo', date: 'Giugno' },
+  { id: 3, location: 'Sassari', club: 'Padel Park', date: 'Ottobre' },
+  { id: 4, location: 'Olbia', club: 'Sporting Padel Olbia', date: 'Ottobre' },
+  { id: 5, location: 'Sassari', club: 'Sporting Padel Sassari', date: 'Novembre' },
+  { id: 6, location: 'Muros', club: 'Muros Padel Club', date: 'Dicembre' },
 ];
 
 const IslandPadelTour: React.FC = () => {
-  const navigate = useNavigate();
 
   return (
     <div className="bg-gray-50 min-h-screen animate-fade-in">
@@ -53,9 +50,9 @@ const IslandPadelTour: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-[#1A202C] text-white p-8 rounded-3xl shadow-2xl flex items-center justify-between group hover:scale-[1.02] transition-transform">
             <div>
-              <div className="text-5xl font-black mb-1">9</div>
+              <div className="text-5xl font-black mb-1">7</div>
               <div className="text-[#FF6B35] font-bold text-sm tracking-widest uppercase">Appuntamenti</div>
-              <div className="text-xs text-gray-400 mt-1 italic">8 Tappe + Master Finale</div>
+              <div className="text-xs text-gray-400 mt-1 italic">6 Tappe + Master Finale</div>
             </div>
             <Trophy size={40} className="text-[#FF6B35] opacity-80 group-hover:rotate-12 transition-transform" />
           </div>
@@ -144,7 +141,7 @@ const IslandPadelTour: React.FC = () => {
           <Button 
             variant="primary"
             className="px-12 py-5 bg-[#FF6B35] hover:bg-[#e85a2a] text-lg font-black shadow-orange-500/20 w-full md:w-auto"
-            onClick={() => navigate(AppRoutes.WIP)}
+            onClick={() => window.open('/regolamento-island-padel-tour-2026.pdf', '_blank')}
           >
             <FileText className="w-6 h-6 mr-2" />
             Regolamento
