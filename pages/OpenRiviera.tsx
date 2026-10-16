@@ -52,7 +52,7 @@ const OpenRiviera: React.FC = () => {
                 className="text-lg px-8 py-4 bg-[#FF6B35] hover:bg-[#e85a2a] shadow-xl shadow-orange-500/20"
                 onClick={() => navigate(AppRoutes.WIP)}
               >
-                Prossima Edizione 2026
+                Prossima Edizione 2027
               </Button>
             </div>
           </div>
@@ -219,7 +219,7 @@ const OpenRiviera: React.FC = () => {
               onClick={() => navigate(AppRoutes.WIP)}
             >
               <Calendar className="w-6 h-6 mr-2" />
-              Prossima Edizione 2026
+              Prossima Edizione 2027
             </Button>
           </div>
         </div>

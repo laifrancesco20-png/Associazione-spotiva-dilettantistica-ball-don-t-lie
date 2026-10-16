@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
-import { Trophy, Calendar, MapPin, BarChart3, FileText, UserCheck } from 'lucide-react';
+import { Trophy, Calendar, MapPin, BarChart3, FileText } from 'lucide-react';
 import { AppRoutes } from '../types';
 
 const stages = [
@@ -39,7 +39,7 @@ const IslandPadelTour: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <Button 
               className="bg-[#FF6B35] hover:bg-[#e85a2a] px-8"
-              onClick={() => navigate(AppRoutes.WIP)}
+              onClick={() => window.open('https://drive.google.com/file/d/1FymYk0bozmLmP9ZshVFuGqTwms4Gh3mc/view?usp=sharing', '_blank')}
             >
               <BarChart3 size={20} className="mr-2" />
               Ranking Ufficiale
@@ -141,14 +141,6 @@ const IslandPadelTour: React.FC = () => {
 
         {/* Action Buttons at Bottom */}
         <div className="mt-20 flex flex-col md:flex-row items-center justify-center gap-6">
-          <Button 
-            variant="primary"
-            className="px-12 py-5 bg-[#FF6B35] hover:bg-[#e85a2a] text-lg font-black shadow-orange-500/20 w-full md:w-auto"
-            onClick={() => navigate(AppRoutes.WIP)}
-          >
-            <UserCheck className="w-6 h-6 mr-2" />
-            Iscrizione
-          </Button>
           <Button 
             variant="primary"
             className="px-12 py-5 bg-[#FF6B35] hover:bg-[#e85a2a] text-lg font-black shadow-orange-500/20 w-full md:w-auto"

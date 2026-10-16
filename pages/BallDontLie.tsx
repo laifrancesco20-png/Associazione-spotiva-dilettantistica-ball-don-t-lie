@@ -31,12 +31,6 @@ const BallDontLie: React.FC = () => {
             <p className="text-xl text-gray-300 mb-8">
               Il torneo streetball di riferimento. Dove il talento incontra l'asfalto e il tramonto di Alghero.
             </p>
-            <Button 
-              className="text-lg px-8 py-4"
-              onClick={() => navigate(AppRoutes.WIP)}
-            >
-              Iscriviti 2026
-            </Button>
           </div>
         </div>
       </section>
@@ -155,7 +149,7 @@ const BallDontLie: React.FC = () => {
               className="px-8"
               onClick={() => navigate(AppRoutes.WIP)}
             >
-              Prossima Edizione 2026
+              Prossima Edizione 2027
             </Button>
           </div>
         </div>
