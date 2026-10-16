@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, Users, Trophy, MapPin, Mail, ArrowRight } from 'lucide-react';
+import { Users, Trophy, MapPin, Mail, ArrowRight } from 'lucide-react';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import { AppRoutes } from '../types';
@@ -39,10 +39,6 @@ const Home: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button onClick={handleScrollToCards} className="text-lg px-8">
               Scopri i tornei
-            </Button>
-            <Button variant="outline" onClick={() => navigate(AppRoutes.PADEL_TOUR)} className="text-lg px-8">
-              <Calendar className="w-5 h-5 mr-2" />
-              Calendario 2026
             </Button>
           </div>
         </div>
