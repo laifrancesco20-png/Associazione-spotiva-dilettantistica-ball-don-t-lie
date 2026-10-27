@@ -6,7 +6,7 @@ interface RevealProps {
   /** Ritardo in millisecondi, utile per far comparire le card una dopo l'altra */
   delay?: number;
   /** Direzione da cui arriva l'elemento */
-  from?: 'bottom' | 'left' | 'right' | 'zoom';
+  from?: 'bottom' | 'left' | 'right' | 'zoom' | 'wipe';
   onClick?: () => void;
 }
 

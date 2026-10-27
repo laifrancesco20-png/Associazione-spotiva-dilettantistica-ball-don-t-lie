@@ -5,6 +5,7 @@ import Button from '../components/Button';
 import Reveal from '../components/Reveal';
 import CountUp from '../components/CountUp';
 import ParallaxImage from '../components/ParallaxImage';
+import TiltCard from '../components/TiltCard';
 import { AppRoutes } from '../types';
 import { padelStages } from '../data';
 import { photos } from '../photos';
@@ -51,6 +52,11 @@ const stats = [
   { value: '100%', label: 'Passione Sarda' },
 ];
 
+const heroLines = [
+  [{ text: 'Dove' }, { text: 'lo' }, { text: 'sport' }],
+  [{ text: 'incontra' }, { text: 'la', accent: true }, { text: 'comunità', accent: true }],
+];
+
 const marqueeWords = ["Ball Don't Lie", 'Open Riviera del Corallo', 'The Island Padel Tour'];
 
 const Home: React.FC = () => {
@@ -62,13 +68,15 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#0B0F17] text-white overflow-x-clip">
+    <div className="bg-[#F5F1EB] text-[#141B2D] overflow-x-clip">
       {/* Hero Section */}
-      <section className="relative min-h-[calc(100svh-5rem)] flex items-end overflow-hidden">
+      <section className="relative min-h-[calc(100svh-5rem)] flex items-end overflow-hidden bg-[#141B2D] text-white">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <ParallaxImage src={photos.homeHero} alt="" speed={0.3} />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,15,23,0.35)_0%,rgba(11,15,23,0.55)_45%,#0B0F17_100%)]"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,27,45,0.35)_0%,rgba(20,27,45,0.55)_45%,#141B2D_100%)]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_80%,rgba(255,107,53,0.25),transparent_55%)]"></div>
+          <div className="float-slow absolute -left-24 bottom-10 w-[28rem] h-[28rem] rounded-full bg-[#FF6B35]/25 blur-3xl"></div>
+          <div className="float-slower absolute -right-24 top-10 w-[24rem] h-[24rem] rounded-full bg-[#4A90E2]/20 blur-3xl"></div>
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 pb-16 md:pb-24 pt-32">
@@ -76,11 +84,26 @@ const Home: React.FC = () => {
             <span className="w-2 h-2 rounded-full bg-[#FF6B35] animate-pulse"></span>
             Alghero • Sardegna
           </div>
-          <h1 className="hero-in [animation-delay:100ms] text-[3.2rem] leading-[0.95] sm:text-7xl lg:text-[7.5rem] font-extrabold tracking-[-0.04em] uppercase max-w-5xl">
-            Dove lo sport <br />
-            incontra <span className="text-gradient">la comunità</span>
+          <h1 className="text-[3.2rem] leading-[0.95] sm:text-7xl lg:text-[7.5rem] font-extrabold tracking-[-0.04em] uppercase max-w-5xl">
+            {heroLines.map((line, lineIndex) => (
+              <span key={lineIndex} className="block">
+                {line.map((word, wordIndex) => (
+                  <React.Fragment key={word.text}>
+                    <span className="word">
+                      <span
+                        className={word.accent ? 'text-gradient' : ''}
+                        style={{ '--word-delay': `${150 + (lineIndex * 2 + wordIndex) * 110}ms` } as React.CSSProperties}
+                      >
+                        {word.text}
+                      </span>
+                    </span>
+                    {wordIndex < line.length - 1 && ' '}
+                  </React.Fragment>
+                ))}
+              </span>
+            ))}
           </h1>
-          <div className="hero-in [animation-delay:250ms] mt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div className="hero-in [animation-delay:700ms] mt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <p className="text-lg md:text-xl text-slate-300 max-w-xl leading-relaxed">
               Ball Don't Lie • Open Riviera del Corallo • The Island Padel Tour
             </p>
@@ -102,9 +125,9 @@ const Home: React.FC = () => {
           {[0, 1].map((copy) => (
             <div key={copy} className="flex shrink-0 items-center" aria-hidden={copy === 1}>
               {[...marqueeWords, ...marqueeWords].map((word, index) => (
-                <span key={`${copy}-${index}`} className="flex items-center text-2xl md:text-4xl font-extrabold uppercase tracking-tight text-[#0B0F17] px-6 md:px-8 whitespace-nowrap">
+                <span key={`${copy}-${index}`} className="flex items-center text-2xl md:text-4xl font-extrabold uppercase tracking-tight text-[#141B2D] px-6 md:px-8 whitespace-nowrap">
                   {word}
-                  <Star size={22} className="ml-12 md:ml-16 fill-[#0B0F17]" />
+                  <Star size={22} className="ml-12 md:ml-16 fill-[#141B2D]" />
                 </span>
               ))}
             </div>
@@ -120,7 +143,7 @@ const Home: React.FC = () => {
               I nostri <br className="hidden md:block" />
               <span className="text-gradient">tornei</span>
             </h2>
-            <p className="text-slate-400 text-lg max-w-md">
+            <p className="text-slate-600 text-lg max-w-md">
               Basket 3vs3 e padel, dalla costa di Alghero a tutta la Sardegna.
             </p>
           </Reveal>
@@ -128,16 +151,16 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             {events.map((event, index) => (
               <Reveal key={event.title} delay={index * 120} from="zoom">
-                <button
+                <TiltCard
                   onClick={() => navigate(event.route)}
-                  className="group relative w-full h-[480px] md:h-[560px] rounded-[1.75rem] overflow-hidden text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B35]"
+                  className="group relative w-full h-[480px] md:h-[560px] rounded-[1.75rem] overflow-hidden text-left text-white shadow-[0_30px_60px_-30px_rgba(20,27,45,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B35]"
                 >
                   <img
                     src={event.image}
                     alt={event.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F17] via-[#0B0F17]/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#141B2D] via-[#141B2D]/40 to-transparent"></div>
                   <div className="absolute inset-0 bg-[#FF6B35]/0 group-hover:bg-[#FF6B35]/10 transition-colors duration-500"></div>
 
                   <div className="absolute top-5 left-5">
@@ -152,12 +175,12 @@ const Home: React.FC = () => {
                     <p className="text-slate-300 leading-relaxed mb-6 max-w-sm">{event.text}</p>
                     <span className="inline-flex items-center gap-2 font-bold text-sm">
                       {event.cta}
-                      <span className="w-9 h-9 rounded-full bg-white text-[#0B0F17] flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 group-hover:bg-[#FF6B35] group-hover:text-white">
+                      <span className="w-9 h-9 rounded-full bg-white text-[#141B2D] flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 group-hover:bg-[#FF6B35] group-hover:text-white">
                         <ArrowRight size={16} />
                       </span>
                     </span>
                   </div>
-                </button>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -165,7 +188,8 @@ const Home: React.FC = () => {
       </section>
 
       {/* Numeri */}
-      <section className="relative py-20 md:py-24 border-y border-white/10 overflow-hidden">
+      <section className="relative py-20 md:py-24 overflow-hidden bg-[#141B2D] text-white">
+        <div className="float-slow absolute -top-20 right-10 w-80 h-80 rounded-full bg-[#FF6B35]/15 blur-3xl pointer-events-none"></div>
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
           <span className="text-outline text-[22vw] font-extrabold uppercase leading-none tracking-tighter whitespace-nowrap">BDL</span>
         </div>
@@ -184,10 +208,9 @@ const Home: React.FC = () => {
       {/* Chi siamo */}
       <section className="py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <Reveal from="left">
+          <Reveal from="wipe">
             <div className="relative">
-              <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#FF6B35]/40 to-[#4A90E2]/30 blur-2xl opacity-60"></div>
-              <div className="relative rounded-[1.75rem] overflow-hidden h-[380px] md:h-[520px]">
+                            <div className="relative rounded-[1.75rem] overflow-hidden h-[380px] md:h-[520px] shadow-[0_30px_60px_-30px_rgba(20,27,45,0.5)]">
                 <img src={photos.community} alt="La community di Ball Don't Lie" className="w-full h-full object-cover" />
               </div>
             </div>
@@ -197,13 +220,13 @@ const Home: React.FC = () => {
             <h2 className="text-4xl md:text-6xl font-extrabold tracking-[-0.03em] leading-[1.02] mb-8">
               "Più di un semplice evento sportivo"
             </h2>
-            <p className="text-lg text-slate-300 leading-relaxed mb-6">
-              L’Associazione <span className="font-bold text-white">Ball Don’t Lie</span> nasce con l’obiettivo di organizzare tornei di diverse discipline su tutto il territorio regionale, promuovendo l’attività sportiva e valorizzando gli impianti sardi.
+            <p className="text-lg text-slate-700 leading-relaxed mb-6">
+              L’Associazione <span className="font-bold text-[#FF6B35]">Ball Don’t Lie</span> nasce con l’obiettivo di organizzare tornei di diverse discipline su tutto il territorio regionale, promuovendo l’attività sportiva e valorizzando gli impianti sardi.
             </p>
-            <p className="text-slate-400 leading-relaxed mb-10">
+            <p className="text-slate-500 leading-relaxed mb-10">
               Scopri la storia della nostra associazione e i valori che ci guidano.
             </p>
-            <Button variant="light" onClick={() => navigate(AppRoutes.ABOUT)} className="px-8 py-4">
+            <Button onClick={() => navigate(AppRoutes.ABOUT)} className="px-8 py-4">
               Approfondisci <ArrowRight size={18} />
             </Button>
           </Reveal>
@@ -220,7 +243,7 @@ const Home: React.FC = () => {
             </div>
             <button
               onClick={() => navigate(AppRoutes.PADEL_TOUR)}
-              className="hidden sm:inline-flex items-center gap-2 text-sm font-bold text-slate-300 hover:text-white transition-colors"
+              className="hidden sm:inline-flex items-center gap-2 text-sm font-bold text-slate-600 hover:text-[#FF6B35] transition-colors"
             >
               Scopri il circuito <ArrowRight size={16} />
             </button>
@@ -228,25 +251,25 @@ const Home: React.FC = () => {
         </div>
 
         <Reveal>
-          <div className="no-scrollbar flex gap-4 overflow-x-auto snap-x snap-mandatory rail-pad pb-4">
+          <div className="no-scrollbar flex gap-4 overflow-x-auto snap-x snap-mandatory rail-pad pt-2 pb-10">
             {padelStages.map((stage) => (
               <div
                 key={stage.id}
-                className="snap-start shrink-0 w-[250px] md:w-[280px] rounded-3xl bg-white/[0.04] border border-white/10 p-6 hover:bg-white/[0.08] hover:border-[#FF6B35]/40 transition-colors duration-300"
+                className="snap-start shrink-0 w-[250px] md:w-[280px] rounded-3xl bg-white border border-slate-200/70 p-6 shadow-[0_15px_35px_-20px_rgba(20,27,45,0.25)] hover:-translate-y-1 hover:border-[#FF6B35]/40 hover:shadow-[0_25px_45px_-20px_rgba(255,107,53,0.35)] transition-all duration-300"
               >
                 <div className="flex items-center justify-between mb-10">
-                  <span className="text-5xl font-extrabold text-white/15">{String(stage.id).padStart(2, '0')}</span>
-                  <span className="px-3 py-1 rounded-full bg-[#FF6B35]/15 text-[#FF6B35] text-[11px] font-bold uppercase tracking-[0.12em]">
+                  <span className="text-5xl font-extrabold text-[#141B2D]/10">{String(stage.id).padStart(2, '0')}</span>
+                  <span className="px-3 py-1 rounded-full bg-orange-50 text-[#FF6B35] text-[11px] font-bold uppercase tracking-[0.12em]">
                     {stage.date}
                   </span>
                 </div>
                 <h3 className="text-2xl font-extrabold tracking-tight">{stage.location}</h3>
-                <p className="text-sm text-slate-400 mt-1 flex items-center gap-1.5">
+                <p className="text-sm text-slate-500 mt-1 flex items-center gap-1.5">
                   <MapPin size={14} className="text-[#FF6B35]" /> {stage.club}
                 </p>
               </div>
             ))}
-            <div className="snap-start shrink-0 w-[250px] md:w-[280px] rounded-3xl bg-gradient-to-br from-[#FF6B35] to-[#E53E3E] p-6 shadow-[0_20px_50px_-15px_rgba(255,107,53,0.6)]">
+            <div className="snap-start shrink-0 w-[250px] md:w-[280px] rounded-3xl bg-gradient-to-br from-[#FF6B35] to-[#E53E3E] text-white p-6 shadow-[0_20px_50px_-15px_rgba(255,107,53,0.6)]">
               <div className="flex items-center justify-between mb-10">
                 <span className="text-4xl">★</span>
                 <span className="px-3 py-1 rounded-full bg-black/20 text-[11px] font-bold uppercase tracking-[0.12em]">Gennaio 2027</span>
@@ -266,12 +289,12 @@ const Home: React.FC = () => {
             <div className="absolute -left-10 -bottom-24 w-72 h-72 rounded-full bg-[#E53E3E]/40 blur-3xl"></div>
             <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-10">
               <div>
-                <h2 className="text-4xl md:text-6xl font-extrabold uppercase tracking-[-0.03em] leading-[0.95] text-[#0B0F17]">Contattaci</h2>
-                <p className="mt-4 text-lg md:text-xl text-[#0B0F17]/80 max-w-md">Vuoi collaborare o hai domande sui nostri eventi?</p>
+                <h2 className="text-4xl md:text-6xl font-extrabold uppercase tracking-[-0.03em] leading-[0.95] text-[#141B2D]">Contattaci</h2>
+                <p className="mt-4 text-lg md:text-xl text-[#141B2D]/80 max-w-md">Vuoi collaborare o hai domande sui nostri eventi?</p>
               </div>
               <button
                 onClick={() => window.open(WHATSAPP_URL, '_blank')}
-                className="self-start md:self-auto inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#0B0F17] text-white font-bold hover:-translate-y-0.5 hover:shadow-2xl transition-all duration-300"
+                className="self-start md:self-auto inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#141B2D] text-white font-bold hover:-translate-y-0.5 hover:shadow-2xl transition-all duration-300"
               >
                 <MessageCircle size={20} /> Scrivici su WhatsApp
               </button>

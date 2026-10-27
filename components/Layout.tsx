@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, Mail, Facebook, Phone } from 'lucide-react';
 import { AppRoutes } from '../types';
+import ScrollProgress from './ScrollProgress';
 
 const navItems = [
   { label: 'Home', path: AppRoutes.HOME },
@@ -34,10 +35,11 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#0B0F17] text-white">
+    <div className="flex flex-col min-h-screen bg-[#F5F1EB] text-[#141B2D]">
+      <ScrollProgress />
       {/* Header */}
       <header
-        className={`sticky top-0 z-50 bg-[#0B0F17]/85 backdrop-blur-md border-b text-white transition-all duration-300 ${
+        className={`sticky top-0 z-50 bg-[#141B2D]/85 backdrop-blur-md border-b text-white transition-all duration-300 ${
           scrolled ? 'border-white/10 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)]' : 'border-transparent'
         }`}
       >
@@ -93,7 +95,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
         {/* Mobile Nav Overlay */}
         <div
-          className={`md:hidden absolute w-full bg-[#0B0F17]/95 backdrop-blur-md border-b border-white/10 shadow-xl overflow-hidden transition-all duration-300 ease-out ${
+          className={`md:hidden absolute w-full bg-[#141B2D]/95 backdrop-blur-md border-b border-white/10 shadow-xl overflow-hidden transition-all duration-300 ease-out ${
             isMenuOpen ? 'max-h-[420px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
           }`}
         >
@@ -125,7 +127,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </main>
 
       {/* Footer */}
-      <footer className="relative bg-[#0B0F17] border-t border-white/10 text-gray-300 pt-16 pb-10 overflow-hidden">
+      <footer className="relative bg-[#141B2D] border-t border-white/10 text-gray-300 pt-16 pb-10 overflow-hidden">
         <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#FF6B35]/10 blur-3xl pointer-events-none"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">

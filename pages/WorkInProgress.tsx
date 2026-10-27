@@ -11,13 +11,13 @@ const WorkInProgress: React.FC = () => {
     <div className="relative overflow-hidden min-h-[75vh] flex flex-col items-center justify-center px-4 py-20 text-center">
       <div className="absolute top-10 left-1/2 -translate-x-[70%] w-[32rem] h-[32rem] rounded-full bg-[#FF6B35]/10 blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-0 left-1/2 translate-x-[10%] w-[26rem] h-[26rem] rounded-full bg-[#E53E3E]/10 blur-3xl pointer-events-none"></div>
-      <div className="relative w-28 h-28 bg-[#FF6B35]/15 rounded-full ring-8 ring-[#FF6B35]/10 flex items-center justify-center text-[#FF6B35] mb-8 animate-bounce">
+      <div className="relative w-28 h-28 bg-orange-100 rounded-full ring-8 ring-orange-50 flex items-center justify-center text-[#FF6B35] mb-8 animate-bounce">
         <Construction size={48} />
       </div>
-      <h1 className="hero-in [animation-delay:100ms] relative text-5xl md:text-7xl font-extrabold tracking-[-0.03em] text-white mb-6">
+      <h1 className="hero-in [animation-delay:100ms] relative text-5xl md:text-7xl font-extrabold tracking-[-0.03em] text-[#141B2D] mb-6">
         Work in <span className="text-gradient">Progress</span>
       </h1>
-      <p className="hero-in [animation-delay:200ms] relative text-lg md:text-xl text-slate-300 max-w-xl mb-12 leading-relaxed">
+      <p className="hero-in [animation-delay:200ms] relative text-lg md:text-xl text-slate-600 max-w-xl mb-12 leading-relaxed">
         Stiamo preparando la prossima grande edizione. Tornate a trovarci presto per scoprire tutte le novità del 2026!
       </p>
       <Button onClick={() => navigate(-1)} variant="light" className="hero-in [animation-delay:300ms] relative">

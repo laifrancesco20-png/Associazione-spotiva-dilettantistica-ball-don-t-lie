@@ -30,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({
       variantStyles = "bg-transparent border-2 border-white text-white hover:bg-white/20";
       break;
     case 'light':
-      variantStyles = "bg-white text-[#1A202C] border border-slate-200 hover:border-[#FF6B35] hover:text-[#FF6B35] shadow-[0_10px_25px_-10px_rgba(26,32,44,0.2)]";
+      variantStyles = "bg-white text-[#141B2D] border border-slate-200 hover:border-[#FF6B35] hover:text-[#FF6B35] shadow-[0_10px_25px_-10px_rgba(20,27,45,0.2)]";
       break;
   }
 
