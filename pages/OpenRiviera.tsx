@@ -7,9 +7,9 @@ import { Trophy, Users, Star, Camera, Calendar, MapPin } from 'lucide-react';
 import { AppRoutes } from '../types';
 
 const highlights = [
-  { icon: Trophy, title: 'Torneo Open', text: 'Aperto a tutti i livelli', color: '#4A90E2', bg: 'bg-blue-50' },
-  { icon: Users, title: 'Community', text: 'Oltre 100 partecipanti', color: '#FF6B35', bg: 'bg-orange-50' },
-  { icon: Star, title: 'Prestigio', text: 'Premi di alto livello', color: '#E53E3E', bg: 'bg-red-50' },
+  { icon: Trophy, title: 'Torneo Open', text: 'Aperto a tutti i livelli', color: '#4A90E2', bg: 'bg-[#4A90E2]/15' },
+  { icon: Users, title: 'Community', text: 'Oltre 100 partecipanti', color: '#FF6B35', bg: 'bg-[#FF6B35]/15' },
+  { icon: Star, title: 'Prestigio', text: 'Premi di alto livello', color: '#E53E3E', bg: 'bg-[#E53E3E]/15' },
 ];
 
 const editions = [
@@ -37,15 +37,15 @@ const OpenRiviera: React.FC = () => {
     <div>
       {/* Hero Section with Sardinia/Padel Graphics */}
       <section className="px-3 sm:px-6 pt-3 sm:pt-6">
-        <div className="relative max-w-7xl mx-auto min-h-[580px] md:h-[70vh] rounded-[2rem] overflow-hidden bg-[#1A202C] flex items-end md:items-center">
+        <div className="relative max-w-7xl mx-auto min-h-[580px] md:h-[70vh] rounded-[2rem] overflow-hidden bg-[#131A26] flex items-end md:items-center">
           {/* Background Image: Iconic Alghero (Riviera del Corallo) */}
           <ParallaxImage
             src="https://images.unsplash.com/photo-1528150230181-99bbf7942a8a?q=80&w=2071&auto=format&fit=crop"
             className="opacity-70"
             speed={0.2}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A202C] via-[#1A202C]/65 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1A202C]/80 via-transparent to-transparent md:hidden"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F17] via-[#0B0F17]/65 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F17]/80 via-transparent to-transparent md:hidden"></div>
 
           {/* Sardinia Silhouette Graphic behind the title */}
           <div className="absolute left-[5%] top-1/2 -translate-y-1/2 opacity-10 pointer-events-none select-none">
@@ -66,7 +66,7 @@ const OpenRiviera: React.FC = () => {
                 <span className="text-white/75 text-xs font-semibold tracking-[0.2em] uppercase">Alghero • Sardegna</span>
               </div>
 
-              <h1 className="hero-in [animation-delay:100ms] text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-[-0.03em] text-white mb-6 leading-[0.95]">
+              <h1 className="hero-in [animation-delay:100ms] text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-[-0.03em] text-white mb-6 leading-[0.95] uppercase">
                 Open riviera <br/>
                 <span className="text-gradient">del Corallo</span>
               </h1>
@@ -94,15 +94,15 @@ const OpenRiviera: React.FC = () => {
           {highlights.map((item, index) => (
             <Reveal key={item.title} delay={index * 120}>
               <div
-                className="h-full bg-white rounded-2xl p-6 border border-slate-100 border-t-4 shadow-[0_20px_40px_-20px_rgba(26,32,44,0.25)] flex items-center gap-4 hover:-translate-y-1 transition-transform duration-300"
+                className="h-full bg-[#131A26] rounded-2xl p-6 border border-white/10 border-t-4 shadow-[0_20px_40px_-20px_rgba(26,32,44,0.25)] flex items-center gap-4 hover:-translate-y-1 transition-transform duration-300"
                 style={{ borderTopColor: item.color }}
               >
                 <div className={`shrink-0 w-12 h-12 rounded-xl ${item.bg} flex items-center justify-center`} style={{ color: item.color }}>
                   <item.icon size={24} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg text-[#1A202C]">{item.title}</h4>
-                  <p className="text-slate-500 text-sm">{item.text}</p>
+                  <h4 className="font-bold text-lg text-white">{item.title}</h4>
+                  <p className="text-slate-400 text-sm">{item.text}</p>
                 </div>
               </div>
             </Reveal>
@@ -114,25 +114,25 @@ const OpenRiviera: React.FC = () => {
       <section className="py-24 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <Reveal className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1A202C] mb-4">La nostra Storia</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 uppercase">La nostra Storia</h2>
             <div className="w-16 h-1 bg-[#FF6B35] mx-auto rounded-full mb-6"></div>
-            <p className="text-slate-600 max-w-xl mx-auto text-lg">Un percorso di crescita costante che ha reso l'Open Riviera un punto di riferimento per il Padel in Sardegna.</p>
+            <p className="text-slate-300 max-w-xl mx-auto text-lg">Un percorso di crescita costante che ha reso l'Open Riviera un punto di riferimento per il Padel in Sardegna.</p>
           </Reveal>
 
           <div className="relative">
             {/* Linea verticale */}
-            <div className="absolute left-[11px] md:left-1/2 md:-ml-[1.5px] top-2 bottom-2 w-[3px] rounded-full bg-gradient-to-b from-orange-100 via-[#FF6B35]/50 to-[#FF6B35]"></div>
+            <div className="absolute left-[11px] md:left-1/2 md:-ml-[1.5px] top-2 bottom-2 w-[3px] rounded-full bg-gradient-to-b from-[#FF6B35]/10 via-[#FF6B35]/50 to-[#FF6B35]"></div>
 
             <div className="space-y-14 md:space-y-16">
               {editions.map((edition, index) => {
                 const right = index % 2 === 1;
                 return (
                   <div key={edition.title} className={`relative pl-12 md:pl-0 md:flex ${right ? 'md:flex-row-reverse' : ''}`}>
-                    <div className="absolute left-[3px] md:left-1/2 md:-ml-[10px] top-2 w-5 h-5 rounded-full bg-[#FF6B35] border-4 border-[#F8FAFC] shadow-[0_0_0_4px_rgba(255,107,53,0.15)] z-10"></div>
+                    <div className="absolute left-[3px] md:left-1/2 md:-ml-[10px] top-2 w-5 h-5 rounded-full bg-[#FF6B35] border-4 border-[#0B0F17] shadow-[0_0_0_4px_rgba(255,107,53,0.15)] z-10"></div>
                     <Reveal from={right ? 'right' : 'left'} className={`md:w-1/2 ${right ? 'md:pl-14' : 'md:pr-14 md:text-right'}`}>
                       <div className="text-sm font-bold tracking-[0.15em] text-[#FF6B35] mb-1">{edition.year}</div>
-                      <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-[#1A202C]">{edition.title}</h3>
-                      <p className="text-slate-600 mt-3 leading-relaxed">{edition.text}</p>
+                      <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white">{edition.title}</h3>
+                      <p className="text-slate-300 mt-3 leading-relaxed">{edition.text}</p>
                     </Reveal>
                   </div>
                 );
@@ -140,15 +140,15 @@ const OpenRiviera: React.FC = () => {
 
               {/* Stage 4 - 2026 */}
               <div className="relative pl-12 md:pl-0 md:flex md:flex-row-reverse">
-                <div className="absolute left-[-1px] md:left-1/2 md:-ml-[14px] top-6 w-7 h-7 rounded-full bg-[#FF6B35] border-4 border-[#F8FAFC] shadow-[0_0_0_6px_rgba(255,107,53,0.2)] animate-pulse z-10"></div>
+                <div className="absolute left-[-1px] md:left-1/2 md:-ml-[14px] top-6 w-7 h-7 rounded-full bg-[#FF6B35] border-4 border-[#0B0F17] shadow-[0_0_0_6px_rgba(255,107,53,0.2)] animate-pulse z-10"></div>
                 <Reveal from="right" className="md:w-1/2 md:pl-14">
-                  <div className="bg-white rounded-2xl p-6 md:p-7 border border-orange-100 shadow-[0_20px_40px_-20px_rgba(255,107,53,0.35)]">
+                  <div className="bg-white/[0.04] rounded-2xl p-6 md:p-7 border border-[#FF6B35]/30 shadow-[0_20px_40px_-20px_rgba(255,107,53,0.35)]">
                     <div className="text-sm font-bold tracking-[0.15em] uppercase text-[#FF6B35] mb-1">Agosto 2026</div>
                     <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-[#FF6B35]">4° Edizione</h3>
-                    <p className="text-slate-700 mt-2 font-semibold flex items-center gap-1.5">
+                    <p className="text-slate-200 mt-2 font-semibold flex items-center gap-1.5">
                       <MapPin size={18} className="text-[#4A90E2]" /> Padel Club Alghero
                     </p>
-                    <p className="text-slate-600 mt-3 italic text-lg leading-relaxed">La prossima edizione supererà ogni aspettativa. Alghero si prepara al grande show.</p>
+                    <p className="text-slate-300 mt-3 italic text-lg leading-relaxed">La prossima edizione supererà ogni aspettativa. Alghero si prepara al grande show.</p>
                   </div>
                 </Reveal>
               </div>
@@ -158,12 +158,12 @@ const OpenRiviera: React.FC = () => {
       </section>
 
       {/* Photo Grid Section */}
-      <section className="py-24 bg-[#1A202C] relative overflow-hidden">
+      <section className="py-24 bg-[#131A26] relative overflow-hidden">
         <div className="absolute -top-40 -left-40 w-[28rem] h-[28rem] rounded-full bg-[#4A90E2]/15 blur-3xl pointer-events-none"></div>
         <div className="absolute -bottom-40 -right-40 w-[28rem] h-[28rem] rounded-full bg-[#FF6B35]/15 blur-3xl pointer-events-none"></div>
         <div className="relative max-w-7xl mx-auto px-4">
           <Reveal className="text-center mb-14">
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">Momenti di Gioco</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white uppercase">Momenti di Gioco</h2>
             <p className="text-slate-400 mt-4 text-lg">L'intensità e l'eleganza del padel nella cornice di Alghero.</p>
           </Reveal>
 

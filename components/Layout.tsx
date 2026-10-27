@@ -34,7 +34,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F8FAFC] text-[#1A202C]">
+    <div className="flex flex-col min-h-screen bg-[#0B0F17] text-white">
       {/* Header */}
       <header
         className={`sticky top-0 z-50 bg-[#0B0F17]/85 backdrop-blur-md border-b text-white transition-all duration-300 ${

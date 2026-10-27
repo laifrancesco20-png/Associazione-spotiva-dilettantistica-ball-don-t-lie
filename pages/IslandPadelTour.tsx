@@ -16,18 +16,18 @@ const IslandPadelTour: React.FC = () => {
         <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[48rem] h-[28rem] rounded-full bg-[#FF6B35]/10 blur-3xl pointer-events-none"></div>
         <div className="absolute top-40 -right-40 w-96 h-96 rounded-full bg-[#4A90E2]/10 blur-3xl pointer-events-none"></div>
         <div className="relative max-w-4xl mx-auto">
-          <div className="hero-in mx-auto w-52 h-52 md:w-60 md:h-60 rounded-full bg-white shadow-[0_30px_60px_-25px_rgba(26,32,44,0.35)] ring-1 ring-slate-100 flex items-center justify-center mb-8 p-6">
+          <div className="hero-in mx-auto w-52 h-52 md:w-60 md:h-60 rounded-full bg-white shadow-[0_30px_60px_-25px_rgba(255,107,53,0.45)] ring-4 ring-white/10 flex items-center justify-center mb-8 p-6">
             <img 
               src="https://i.postimg.cc/TYBF227B/Logo-The-Island-Padel-Tour-(3).png" 
               alt="The Island Padel Tour Logo" 
               className="w-full h-full object-contain"
             />
           </div>
-          <h1 className="hero-in [animation-delay:100ms] text-4xl sm:text-5xl md:text-7xl font-extrabold text-[#1A202C] tracking-[-0.03em] mb-5">
+          <h1 className="hero-in [animation-delay:100ms] text-4xl sm:text-5xl md:text-7xl font-extrabold text-white tracking-[-0.03em] mb-5 uppercase">
             The Island <span className="text-gradient">Padel Tour</span> 2026
           </h1>
           <div className="hero-in [animation-delay:150ms] w-20 h-1.5 bg-[#FF6B35] mx-auto rounded-full mb-8"></div>
-          <p className="hero-in [animation-delay:200ms] text-lg md:text-xl text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="hero-in [animation-delay:200ms] text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
             Il circuito regionale d'eccellenza che unisce la Sardegna attraverso la passione per il padel.
           </p>
           <div className="hero-in [animation-delay:300ms] flex flex-wrap justify-center gap-4">
@@ -46,7 +46,7 @@ const IslandPadelTour: React.FC = () => {
       <section className="max-w-6xl mx-auto px-4 -mt-8 mb-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <Reveal delay={0}>
-            <div className="h-full relative overflow-hidden bg-[#1A202C] text-white p-8 rounded-3xl shadow-[0_30px_60px_-25px_rgba(26,32,44,0.6)] flex items-center justify-between group hover:-translate-y-1 transition-transform duration-300">
+            <div className="h-full relative overflow-hidden bg-[#131A26] text-white p-8 rounded-3xl shadow-[0_30px_60px_-25px_rgba(26,32,44,0.6)] flex items-center justify-between group hover:-translate-y-1 transition-transform duration-300">
               <div className="absolute -bottom-12 -left-12 w-40 h-40 rounded-full bg-[#FF6B35]/20 blur-3xl"></div>
               <div className="relative">
                 <div className="text-6xl font-extrabold tracking-tight mb-1"><CountUp value="7" /></div>
@@ -60,26 +60,26 @@ const IslandPadelTour: React.FC = () => {
           </Reveal>
           
           <Reveal delay={120}>
-            <div className="h-full bg-white p-8 rounded-3xl border border-slate-100 border-t-4 border-t-[#FF6B35] shadow-[0_20px_40px_-20px_rgba(26,32,44,0.2)] flex items-center justify-between group hover:-translate-y-1 transition-transform duration-300">
+            <div className="h-full bg-white/[0.04] p-8 rounded-3xl border border-white/10 border-t-4 border-t-[#FF6B35] shadow-[0_20px_40px_-20px_rgba(26,32,44,0.2)] flex items-center justify-between group hover:-translate-y-1 transition-transform duration-300">
               <div>
                 <div className="text-4xl md:text-5xl font-extrabold tracking-tight mb-1 text-[#FF6B35]">Regione</div>
-                <div className="text-slate-500 font-bold text-xs tracking-[0.15em] uppercase">Copertura</div>
+                <div className="text-slate-400 font-bold text-xs tracking-[0.15em] uppercase">Copertura</div>
                 <div className="text-xs text-slate-400 mt-1">Da Olbia a Cagliari</div>
               </div>
-              <div className="w-14 h-14 rounded-2xl bg-orange-50 flex items-center justify-center">
+              <div className="w-14 h-14 rounded-2xl bg-[#FF6B35]/15 flex items-center justify-center">
                 <MapPin size={28} className="text-[#FF6B35] group-hover:-translate-y-1 transition-transform" />
               </div>
             </div>
           </Reveal>
 
           <Reveal delay={240}>
-            <div className="h-full bg-white p-8 rounded-3xl border border-slate-100 border-t-4 border-t-[#4A90E2] shadow-[0_20px_40px_-20px_rgba(26,32,44,0.2)] flex items-center justify-between group hover:-translate-y-1 transition-transform duration-300">
+            <div className="h-full bg-white/[0.04] p-8 rounded-3xl border border-white/10 border-t-4 border-t-[#4A90E2] shadow-[0_20px_40px_-20px_rgba(26,32,44,0.2)] flex items-center justify-between group hover:-translate-y-1 transition-transform duration-300">
               <div>
-                <div className="text-6xl font-extrabold tracking-tight mb-1 text-[#1A202C]"><CountUp value="3" /></div>
-                <div className="text-slate-500 font-bold text-xs tracking-[0.15em] uppercase">Categorie</div>
+                <div className="text-6xl font-extrabold tracking-tight mb-1 text-white"><CountUp value="3" /></div>
+                <div className="text-slate-400 font-bold text-xs tracking-[0.15em] uppercase">Categorie</div>
                 <div className="text-xs text-slate-400 mt-1">Maschile / Femminile / Misto</div>
               </div>
-              <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center">
+              <div className="w-14 h-14 rounded-2xl bg-[#4A90E2]/15 flex items-center justify-center">
                 <BarChart3 size={28} className="text-[#4A90E2] group-hover:scale-110 transition-transform" />
               </div>
             </div>
@@ -90,28 +90,28 @@ const IslandPadelTour: React.FC = () => {
       {/* Calendar List */}
       <section className="max-w-4xl mx-auto px-4 pb-24">
         <Reveal className="flex items-center gap-4 mb-10">
-          <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center">
+          <div className="w-12 h-12 bg-[#FF6B35]/15 rounded-xl flex items-center justify-center">
             <Calendar className="text-[#FF6B35] w-6 h-6" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#1A202C]">Calendario Tappe 2026</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white uppercase">Calendario Tappe 2026</h2>
         </Reveal>
         
         <div className="space-y-3">
           {stages.map((stage, index) => (
             <Reveal key={stage.id} delay={index * 70} from="left">
-              <div className="bg-white p-5 md:p-6 rounded-2xl border border-slate-100 shadow-[0_8px_20px_-12px_rgba(26,32,44,0.15)] hover:shadow-[0_20px_40px_-20px_rgba(255,107,53,0.35)] hover:border-orange-100 hover:translate-x-1 transition-all duration-300 flex items-center justify-between gap-4 group">
+              <div className="bg-white/[0.04] p-5 md:p-6 rounded-2xl border border-white/10 shadow-[0_8px_20px_-12px_rgba(26,32,44,0.15)] hover:shadow-[0_20px_40px_-20px_rgba(255,107,53,0.35)] hover:border-[#FF6B35]/30 hover:translate-x-1 transition-all duration-300 flex items-center justify-between gap-4 group">
                 <div className="flex items-center gap-4 md:gap-5 min-w-0">
-                  <div className="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-orange-50 flex items-center justify-center text-[#FF6B35] font-extrabold text-xl group-hover:bg-[#FF6B35] group-hover:text-white transition-colors">
+                  <div className="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-[#FF6B35]/15 flex items-center justify-center text-[#FF6B35] font-extrabold text-xl group-hover:bg-[#FF6B35] group-hover:text-white transition-colors">
                     {stage.id}
                   </div>
                   <div className="min-w-0">
-                    <h3 className="font-extrabold text-lg md:text-xl text-[#1A202C] tracking-tight">{stage.location}</h3>
-                    <p className="text-sm text-slate-500 flex items-center gap-1.5 mt-0.5">
+                    <h3 className="font-extrabold text-lg md:text-xl text-white tracking-tight">{stage.location}</h3>
+                    <p className="text-sm text-slate-400 flex items-center gap-1.5 mt-0.5">
                       <MapPin size={14} className="shrink-0 text-[#FF6B35]" /> {stage.club}
                     </p>
                   </div>
                 </div>
-                <span className="shrink-0 inline-block px-3 md:px-4 py-1.5 md:py-2 bg-orange-50 text-[#FF6B35] rounded-full text-xs md:text-sm font-bold tracking-wide uppercase">
+                <span className="shrink-0 inline-block px-3 md:px-4 py-1.5 md:py-2 bg-[#FF6B35]/15 text-[#FF6B35] rounded-full text-xs md:text-sm font-bold tracking-wide uppercase">
                   {stage.date}
                 </span>
               </div>
@@ -120,7 +120,7 @@ const IslandPadelTour: React.FC = () => {
           
           {/* Master Finale Highlight */}
           <Reveal from="zoom">
-            <div className="bg-gradient-to-r from-[#1A202C] to-[#2D3748] p-8 rounded-3xl shadow-[0_30px_60px_-25px_rgba(26,32,44,0.6)] text-white flex flex-col sm:flex-row items-center justify-between gap-6 mt-8 border-b-4 border-[#FF6B35] group overflow-hidden relative">
+            <div className="bg-gradient-to-r from-[#0B0F17] to-[#1C2433] p-8 rounded-3xl shadow-[0_30px_60px_-25px_rgba(26,32,44,0.6)] text-white flex flex-col sm:flex-row items-center justify-between gap-6 mt-8 border-b-4 border-[#FF6B35] group overflow-hidden relative">
               {/* Background Graphic */}
               <div className="absolute right-[-20px] bottom-[-20px] opacity-10 group-hover:rotate-12 transition-transform duration-700">
                  <Trophy size={200} />
