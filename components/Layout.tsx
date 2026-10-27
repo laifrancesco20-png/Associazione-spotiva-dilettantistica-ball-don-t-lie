@@ -37,8 +37,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <div className="flex flex-col min-h-screen bg-[#F8FAFC] text-[#1A202C]">
       {/* Header */}
       <header
-        className={`sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b transition-all duration-300 ${
-          scrolled ? 'border-slate-200/80 shadow-[0_8px_30px_-12px_rgba(26,32,44,0.15)]' : 'border-transparent'
+        className={`sticky top-0 z-50 bg-[#0B0F17]/85 backdrop-blur-md border-b text-white transition-all duration-300 ${
+          scrolled ? 'border-white/10 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)]' : 'border-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,7 +48,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <img
                 src="/logo-bdl.svg"
                 alt="BDL Sports Promoters"
-                className="h-8 w-auto transition-transform duration-300 group-hover:scale-105"
+                className="h-8 w-auto brightness-0 invert transition-transform duration-300 group-hover:scale-105"
               />
               <span className="font-extrabold text-lg tracking-tight hidden sm:block group-hover:text-[#FF6B35] transition-colors">
                 ASD Ball Don't Lie
@@ -64,7 +64,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     key={item.path}
                     to={item.path}
                     className={`relative py-2 text-sm font-semibold transition-colors duration-200 group ${
-                      active ? 'text-[#1A202C]' : 'text-slate-500 hover:text-[#1A202C]'
+                      active ? 'text-white' : 'text-slate-400 hover:text-white'
                     }`}
                   >
                     {item.label}
@@ -83,7 +83,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <button
                 onClick={toggleMenu}
                 aria-label={isMenuOpen ? 'Chiudi menu' : 'Apri menu'}
-                className="p-2 -mr-2 rounded-full text-slate-700 hover:text-[#FF6B35] focus:outline-none"
+                className="p-2 -mr-2 rounded-full text-white hover:text-[#FF6B35] focus:outline-none"
               >
                 {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
               </button>
@@ -93,7 +93,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
         {/* Mobile Nav Overlay */}
         <div
-          className={`md:hidden absolute w-full bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-xl overflow-hidden transition-all duration-300 ease-out ${
+          className={`md:hidden absolute w-full bg-[#0B0F17]/95 backdrop-blur-md border-b border-white/10 shadow-xl overflow-hidden transition-all duration-300 ease-out ${
             isMenuOpen ? 'max-h-[420px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
           }`}
         >
@@ -108,8 +108,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
                 } ${
                   location.pathname === item.path
-                    ? 'bg-orange-50 text-[#FF6B35]'
-                    : 'text-slate-700 hover:bg-slate-50'
+                    ? 'bg-[#FF6B35]/15 text-[#FF6B35]'
+                    : 'text-slate-200 hover:bg-white/5'
                 }`}
               >
                 {item.label}
@@ -125,7 +125,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </main>
 
       {/* Footer */}
-      <footer className="relative bg-[#1A202C] text-gray-300 pt-16 pb-10 overflow-hidden">
+      <footer className="relative bg-[#0B0F17] border-t border-white/10 text-gray-300 pt-16 pb-10 overflow-hidden">
         <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#FF6B35]/10 blur-3xl pointer-events-none"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">

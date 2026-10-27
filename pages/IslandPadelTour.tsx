@@ -2,16 +2,10 @@ import React from 'react';
 import Button from '../components/Button';
 import Reveal from '../components/Reveal';
 import CountUp from '../components/CountUp';
+import { padelStages } from '../data';
 import { Trophy, Calendar, MapPin, BarChart3, FileText } from 'lucide-react';
 
-const stages = [
-  { id: 1, location: 'Alghero', club: 'Padel Club Alghero', date: 'Maggio' },
-  { id: 2, location: 'Stintino', club: 'Padel Cala Lupo', date: 'Giugno' },
-  { id: 3, location: 'Sassari', club: 'Padel Park', date: 'Ottobre' },
-  { id: 4, location: 'Olbia', club: 'Sporting Padel Olbia', date: 'Ottobre' },
-  { id: 5, location: 'Sassari', club: 'Sporting Padel Sassari', date: 'Novembre' },
-  { id: 6, location: 'Muros', club: 'Muros Padel Club', date: 'Dicembre' },
-];
+const stages = padelStages;
 
 const IslandPadelTour: React.FC = () => {
 

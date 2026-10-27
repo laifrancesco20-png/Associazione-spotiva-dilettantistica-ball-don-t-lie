@@ -92,3 +92,51 @@ body {
     animation: none;
   }
 }
+
+/* Striscia di testo che scorre all'infinito */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Scorrimento orizzontale senza barra visibile */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Testo con solo il contorno, per i titoli giganti di sfondo */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Allinea la fila che scorre di lato al resto della pagina */
+.rail-pad {
+  padding-left: max(1.25rem, calc((100vw - 80rem) / 2 + 2rem));
+  padding-right: 1.25rem;
+  scroll-padding-left: max(1.25rem, calc((100vw - 80rem) / 2 + 2rem));
+}
