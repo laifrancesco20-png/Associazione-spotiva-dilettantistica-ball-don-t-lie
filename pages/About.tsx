@@ -54,7 +54,7 @@ const About: React.FC = () => {
       {/* Header Image */}
       <div className="relative h-[55vh] min-h-[420px] w-full bg-[#131A26] overflow-hidden">
         <ParallaxImage
-          src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=2069&auto=format&fit=crop"
+          src="/prova.svg"
           alt="Sports Atmosphere"
           className="opacity-60"
         />
@@ -136,7 +136,7 @@ const About: React.FC = () => {
           <Reveal from="right" className="order-1 lg:order-2">
             <div className="relative rounded-3xl overflow-hidden shadow-[0_30px_60px_-20px_rgba(26,32,44,0.35)] h-[320px] md:h-[440px] group">
               <img
-                src="https://images.unsplash.com/photo-1544919982-b61976f0ba43?q=80&w=2022&auto=format&fit=crop"
+                src="/prova.svg"
                 alt="Team spirit"
                 className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
               />

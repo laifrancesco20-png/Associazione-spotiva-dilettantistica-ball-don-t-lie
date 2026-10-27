@@ -8,28 +8,28 @@ import { AppRoutes } from '../types';
 
 const gallery = [
   {
-    src: 'https://i.postimg.cc/901LQ2F3/foto1.png',
+    src: '/prova.svg',
     alt: "Schiacciata spettacolare Ball Don't Lie",
     title: 'Showtime',
     text: "L'intensità del gioco",
     className: 'md:row-span-2',
   },
   {
-    src: 'https://images.unsplash.com/photo-1519766304817-4f37bda74a26?q=80&w=2070&auto=format&fit=crop',
+    src: '/prova.svg',
     alt: 'Foto di gruppo partecipanti e staff',
     title: 'La Community',
     text: 'Uniti dalla passione per il basket',
     className: 'md:col-span-2',
   },
   {
-    src: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2186&auto=format&fit=crop',
+    src: '/prova.svg',
     alt: 'Preparazione del campo',
     title: 'Work in Progress',
     text: 'Cura dei dettagli',
     className: '',
   },
   {
-    src: 'https://images.unsplash.com/photo-1518063311540-06405f63b46a?q=80&w=2070&auto=format&fit=crop',
+    src: '/prova.svg',
     alt: 'Pubblico e atmosfera serale',
     title: 'Atmosfera Unica',
     text: 'Alghero by night',
@@ -45,7 +45,7 @@ const BallDontLie: React.FC = () => {
       {/* Hero */}
       <section className="px-3 sm:px-6 pt-3 sm:pt-6">
         <div className="relative max-w-7xl mx-auto min-h-[540px] md:h-[64vh] rounded-[2rem] overflow-hidden bg-[#131A26] flex items-end md:items-center">
-          <ParallaxImage src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2090&auto=format&fit=crop" speed={0.2} />
+          <ParallaxImage src="/prova.svg" speed={0.2} />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F17] via-[#0B0F17]/75 to-[#0B0F17]/10"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F17]/80 via-transparent to-transparent md:hidden"></div>
 

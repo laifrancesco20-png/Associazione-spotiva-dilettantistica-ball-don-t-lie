@@ -40,7 +40,7 @@ const OpenRiviera: React.FC = () => {
         <div className="relative max-w-7xl mx-auto min-h-[580px] md:h-[70vh] rounded-[2rem] overflow-hidden bg-[#131A26] flex items-end md:items-center">
           {/* Background Image: Iconic Alghero (Riviera del Corallo) */}
           <ParallaxImage
-            src="https://images.unsplash.com/photo-1528150230181-99bbf7942a8a?q=80&w=2071&auto=format&fit=crop"
+            src="/prova.svg"
             className="opacity-70"
             speed={0.2}
           />
@@ -171,7 +171,7 @@ const OpenRiviera: React.FC = () => {
             <Reveal from="zoom" className="md:col-span-2 md:row-span-2">
               <div className="h-[360px] md:h-[600px] rounded-3xl overflow-hidden group relative">
                 <img
-                  src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=2070&auto=format&fit=crop"
+                  src="/prova.svg"
                   alt="Padel Match Action"
                   className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
                 />
@@ -182,7 +182,7 @@ const OpenRiviera: React.FC = () => {
             <Reveal from="zoom" delay={100}>
               <div className="aspect-square rounded-3xl overflow-hidden group relative">
                 <img
-                  src="https://images.unsplash.com/photo-1626224580175-340ad0e3a736?q=80&w=600&auto=format&fit=crop"
+                  src="/prova.svg"
                   alt="Padel Detail"
                   className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
                 />
@@ -192,7 +192,7 @@ const OpenRiviera: React.FC = () => {
             <Reveal from="zoom" delay={200}>
               <div className="aspect-square rounded-3xl overflow-hidden group relative">
                 <img
-                  src="https://images.unsplash.com/photo-1613915611241-766116239f28?q=80&w=600&auto=format&fit=crop"
+                  src="/prova.svg"
                   alt="Tournament Atmosphere"
                   className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
                 />
@@ -202,7 +202,7 @@ const OpenRiviera: React.FC = () => {
             <Reveal from="zoom" delay={300} className="md:col-span-2">
               <div className="aspect-video rounded-3xl overflow-hidden group relative">
                 <img
-                  src="https://images.unsplash.com/photo-1552667466-07770ae110d0?q=80&w=1000&auto=format&fit=crop"
+                  src="/prova.svg"
                   alt="Team Spirit"
                   className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
                 />
