@@ -16,10 +16,14 @@ const IslandPadelTour: React.FC = () => {
         <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[48rem] h-[28rem] rounded-full bg-[#FF6B35]/10 blur-3xl pointer-events-none"></div>
         <div className="float-slow absolute top-40 -right-40 w-96 h-96 rounded-full bg-[#4A90E2]/10 blur-3xl pointer-events-none"></div>
         <div className="relative max-w-4xl mx-auto">
-          <div className="hero-in mx-auto w-52 h-52 md:w-60 md:h-60 rounded-full bg-white shadow-[0_30px_60px_-25px_rgba(20,27,45,0.35)] ring-1 ring-slate-100 flex items-center justify-center mb-8 p-6">
+          <div className="mx-auto w-52 h-52 md:w-60 md:h-60 rounded-full bg-white shadow-[0_30px_60px_-25px_rgba(20,27,45,0.35)] ring-1 ring-slate-100 flex items-center justify-center mb-8 p-6">
             <img 
-              src="/logo-island-padel-tour.svg" 
-              alt="The Island Padel Tour Logo" 
+              src="/logo-island-padel-tour.png"
+              alt="The Island Padel Tour Logo"
+              width={451}
+              height={341}
+              fetchPriority="high"
+              decoding="async"
               className="w-full h-full object-contain"
             />
           </div>
