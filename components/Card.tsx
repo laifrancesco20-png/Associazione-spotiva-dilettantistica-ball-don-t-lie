@@ -10,7 +10,11 @@ const Card: React.FC<CardProps> = ({ children, className = '', hoverEffect = tru
   // Lo sfondo bianco è solo il predefinito: se la card ne riceve uno, vince quello
   const background = /(^|\s)bg-/.test(className) ? '' : 'bg-white';
   return (
-    <div className={`${background} rounded-2xl shadow-lg p-6 ${hoverEffect ? 'hover:shadow-xl transition-shadow duration-300' : ''} ${className}`}>
+    <div
+      className={`${background} rounded-2xl p-7 md:p-8 border border-slate-100 shadow-[0_10px_30px_-10px_rgba(20,27,45,0.08),0_4px_6px_-2px_rgba(20,27,45,0.03)] ${
+        hoverEffect ? 'transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_40px_-15px_rgba(20,27,45,0.18)]' : ''
+      } ${className}`}
+    >
       {children}
     </div>
   );

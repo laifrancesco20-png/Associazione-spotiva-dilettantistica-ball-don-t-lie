@@ -1,161 +1,156 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
+import Reveal from '../components/Reveal';
+import ParallaxImage from '../components/ParallaxImage';
 import { Trophy, Users, Star, Camera, Calendar, MapPin } from 'lucide-react';
 import { AppRoutes } from '../types';
+
+const highlights = [
+  { icon: Trophy, title: 'Torneo Open', text: 'Aperto a tutti i livelli', color: '#4A90E2', bg: 'bg-blue-50' },
+  { icon: Users, title: 'Community', text: 'Oltre 100 partecipanti', color: '#FF6B35', bg: 'bg-orange-50' },
+  { icon: Star, title: 'Prestigio', text: 'Premi di alto livello', color: '#E53E3E', bg: 'bg-red-50' },
+];
+
+const editions = [
+  {
+    year: '2023',
+    title: '1° Edizione',
+    text: "L'inizio di una nuova sfida. Alghero accoglie il padel con un entusiasmo senza precedenti.",
+  },
+  {
+    year: '2024',
+    title: '2° Edizione',
+    text: "Consolidamento e record di iscritti. Il torneo attira giocatori da tutta l'isola.",
+  },
+  {
+    year: '2025',
+    title: '3° Edizione',
+    text: "L'edizione della maturità. Livello tecnico altissimo e grande partecipazione di pubblico.",
+  },
+];
 
 const OpenRiviera: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="animate-fade-in">
+    <div>
       {/* Hero Section with Sardinia/Padel Graphics */}
-      <section className="relative h-[70vh] flex items-center overflow-hidden bg-[#1A202C]">
-        {/* Background Image: Iconic Alghero (Riviera del Corallo) */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-60"
-          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1528150230181-99bbf7942a8a?q=80&w=2071&auto=format&fit=crop")' }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A202C] via-[#1A202C]/60 to-transparent"></div>
-        </div>
+      <section className="px-3 sm:px-6 pt-3 sm:pt-6">
+        <div className="relative max-w-7xl mx-auto min-h-[580px] md:h-[70vh] rounded-[2rem] overflow-hidden bg-[#141B2D] flex items-end md:items-center">
+          {/* Background Image: Iconic Alghero (Riviera del Corallo) */}
+          <ParallaxImage
+            src="/prova.svg"
+            className="opacity-70"
+            speed={0.2}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#141B2D] via-[#141B2D]/65 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#141B2D]/80 via-transparent to-transparent md:hidden"></div>
 
-        {/* Sardinia Silhouette Graphic behind the title */}
-        <div className="absolute left-[5%] top-1/2 -translate-y-1/2 opacity-10 pointer-events-none select-none">
-          <svg width="400" height="600" viewBox="0 0 400 600" fill="white" xmlns="http://www.w3.org/2000/svg">
-            {/* Simplified Sardinia Path */}
-            <path d="M190 20C210 30 230 40 240 60C250 80 260 100 270 120C280 140 300 160 310 180C320 200 330 220 325 240C320 260 310 280 305 300C300 320 300 340 305 360C310 380 320 400 325 420C330 440 325 460 315 480C305 500 280 520 250 540C220 560 190 575 160 580C130 585 100 580 80 560C60 540 50 510 45 480C40 450 40 420 50 390C60 360 75 330 75 300C75 270 65 240 55 210C45 180 30 150 40 120C50 90 80 70 110 50C140 30 170 10 190 20Z" />
-          </svg>
-        </div>
-        
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="inline-block px-4 py-1 bg-[#FF6B35] text-white text-sm font-bold rounded-full">
-                PADEL OPEN
+          {/* Sardinia Silhouette Graphic behind the title */}
+          <div className="absolute left-[5%] top-1/2 -translate-y-1/2 opacity-10 pointer-events-none select-none">
+            <svg width="400" height="600" viewBox="0 0 400 600" fill="white" xmlns="http://www.w3.org/2000/svg">
+              {/* Simplified Sardinia Path */}
+              <path d="M190 20C210 30 230 40 240 60C250 80 260 100 270 120C280 140 300 160 310 180C320 200 330 220 325 240C320 260 310 280 305 300C300 320 300 340 305 360C310 380 320 400 325 420C330 440 325 460 315 480C305 500 280 520 250 540C220 560 190 575 160 580C130 585 100 580 80 560C60 540 50 510 45 480C40 450 40 420 50 390C60 360 75 330 75 300C75 270 65 240 55 210C45 180 30 150 40 120C50 90 80 70 110 50C140 30 170 10 190 20Z" />
+            </svg>
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 w-full px-6 sm:px-12 pt-16 pb-24 md:pb-16">
+            <div className="max-w-3xl">
+              <div className="hero-in flex flex-wrap items-center gap-3 mb-6">
+                <div className="inline-block px-4 py-1.5 bg-[#FF6B35] text-white text-xs font-bold tracking-[0.12em] rounded-full shadow-[0_8px_20px_-6px_rgba(255,107,53,0.6)]">
+                  PADEL OPEN
+                </div>
+                <div className="w-10 h-[2px] bg-white/30"></div>
+                <span className="text-white/75 text-xs font-semibold tracking-[0.2em] uppercase">Alghero • Sardegna</span>
               </div>
-              <div className="w-12 h-[2px] bg-white/30"></div>
-              <span className="text-white/70 text-sm font-semibold tracking-widest uppercase">Alghero • Sardegna</span>
-            </div>
-            
-            <h1 className="text-6xl md:text-8xl font-extrabold text-white mb-6 leading-[0.9] drop-shadow-2xl">
-              Open riviera <br/>
-              <span className="text-[#FF6B35]">del Corallo</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-200 mb-10 font-light max-w-xl border-l-4 border-[#FF6B35] pl-6">
-              L'appuntamento d'eccellenza per il padel ad Alghero. Competizione, spettacolo e l'energia della nostra terra.
-            </p>
-            
-            <div className="flex flex-wrap gap-4">
-              <Button 
-                className="text-lg px-8 py-4 bg-[#FF6B35] hover:bg-[#e85a2a] shadow-xl shadow-orange-500/20"
-                onClick={() => navigate(AppRoutes.WIP)}
-              >
-                Prossima Edizione 2027
-              </Button>
+
+              <h1 className="hero-in [animation-delay:100ms] text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-[-0.03em] text-white mb-6 leading-[0.95] uppercase">
+                Open riviera <br/>
+                <span className="text-gradient">del Corallo</span>
+              </h1>
+
+              <p className="hero-in [animation-delay:200ms] text-lg md:text-xl text-slate-200 mb-10 max-w-xl border-l-4 border-[#FF6B35] pl-5 leading-relaxed">
+                L'appuntamento d'eccellenza per il padel ad Alghero. Competizione, spettacolo e l'energia della nostra terra.
+              </p>
+
+              <div className="hero-in [animation-delay:300ms] flex flex-wrap gap-4">
+                <Button
+                  className="text-base px-8 py-4"
+                  onClick={() => navigate(AppRoutes.WIP)}
+                >
+                  Prossima Edizione 2027
+                </Button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Highlights */}
-      <section className="py-16 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-            <div className="flex flex-col md:flex-row items-center gap-4">
-              <div className="p-4 bg-orange-50 rounded-2xl text-[#FF6B35]">
-                <Trophy size={32} />
+      <section className="relative z-10 -mt-14 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
+          {highlights.map((item, index) => (
+            <Reveal key={item.title} delay={index * 120}>
+              <div
+                className="h-full bg-white rounded-2xl p-6 border border-slate-100 border-t-4 shadow-[0_20px_40px_-20px_rgba(20,27,45,0.25)] flex items-center gap-4 hover:-translate-y-1 transition-transform duration-300"
+                style={{ borderTopColor: item.color }}
+              >
+                <div className={`shrink-0 w-12 h-12 rounded-xl ${item.bg} flex items-center justify-center`} style={{ color: item.color }}>
+                  <item.icon size={24} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg text-[#141B2D]">{item.title}</h4>
+                  <p className="text-slate-500 text-sm">{item.text}</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-xl text-gray-900">Torneo Open</h4>
-                <p className="text-gray-600">Aperto a tutti i livelli</p>
-              </div>
-            </div>
-            <div className="flex flex-col md:flex-row items-center gap-4">
-              <div className="p-4 bg-orange-50 rounded-2xl text-[#FF6B35]">
-                <Users size={32} />
-              </div>
-              <div>
-                <h4 className="font-bold text-xl text-gray-900">Community</h4>
-                <p className="text-gray-600">Oltre 100 partecipanti</p>
-              </div>
-            </div>
-            <div className="flex flex-col md:flex-row items-center gap-4">
-              <div className="p-4 bg-orange-50 rounded-2xl text-[#FF6B35]">
-                <Star size={32} />
-              </div>
-              <div>
-                <h4 className="font-bold text-xl text-gray-900">Prestigio</h4>
-                <p className="text-gray-600">Premi di alto livello</p>
-              </div>
-            </div>
-          </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 
       {/* Timeline Section */}
-      <section className="py-24 bg-gray-50 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl font-black text-gray-900 mb-4">La nostra Storia</h2>
-            <div className="w-20 h-1.5 bg-[#FF6B35] mx-auto rounded-full mb-6"></div>
-            <p className="text-gray-600 max-w-xl mx-auto text-lg">Un percorso di crescita costante che ha reso l'Open Riviera un punto di riferimento per il Padel in Sardegna.</p>
-          </div>
+          <Reveal className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#141B2D] mb-4 uppercase">La nostra Storia</h2>
+            <div className="w-16 h-1 bg-[#FF6B35] mx-auto rounded-full mb-6"></div>
+            <p className="text-slate-600 max-w-xl mx-auto text-lg">Un percorso di crescita costante che ha reso l'Open Riviera un punto di riferimento per il Padel in Sardegna.</p>
+          </Reveal>
 
-          <div className="relative border-l-4 border-orange-200 ml-6 md:ml-0 space-y-20">
-            {/* Stage 1 - 2023 */}
-            <div className="relative pl-10 md:pl-0">
-              <div className="md:flex items-center justify-between group">
-                <div className="absolute -left-[10px] md:left-auto md:right-1/2 md:-mr-[10px] w-5 h-5 rounded-full bg-[#FF6B35] border-4 border-white shadow-sm transition-transform group-hover:scale-125 z-10"></div>
-                <div className="md:w-[45%] md:pr-10 md:text-right">
-                  <div className="text-lg font-bold text-[#FF6B35] mb-1">2023</div>
-                  <h3 className="text-3xl font-black text-gray-900">1° Edizione</h3>
-                  <p className="text-gray-600 mt-3 leading-relaxed">L'inizio di una nuova sfida. Alghero accoglie il padel con un entusiasmo senza precedenti.</p>
-                </div>
-                <div className="hidden md:block md:w-[45%]"></div>
-              </div>
-            </div>
+          <div className="relative">
+            {/* Linea verticale */}
+            <div className="absolute left-[11px] md:left-1/2 md:-ml-[1.5px] top-2 bottom-2 w-[3px] rounded-full bg-gradient-to-b from-orange-100 via-[#FF6B35]/50 to-[#FF6B35]"></div>
 
-            {/* Stage 2 - 2024 */}
-            <div className="relative pl-10 md:pl-0">
-              <div className="md:flex items-center justify-between group flex-row-reverse">
-                <div className="absolute -left-[10px] md:left-auto md:left-1/2 md:-ml-[10px] w-5 h-5 rounded-full bg-[#FF6B35] border-4 border-white shadow-sm transition-transform group-hover:scale-125 z-10"></div>
-                <div className="md:w-[45%] md:pl-10 text-left">
-                  <div className="text-lg font-bold text-[#FF6B35] mb-1">2024</div>
-                  <h3 className="text-3xl font-black text-gray-900">2° Edizione</h3>
-                  <p className="text-gray-600 mt-3 leading-relaxed">Consolidamento e record di iscritti. Il torneo attira giocatori da tutta l'isola.</p>
-                </div>
-                <div className="hidden md:block md:w-[45%]"></div>
-              </div>
-            </div>
+            <div className="space-y-14 md:space-y-16">
+              {editions.map((edition, index) => {
+                const right = index % 2 === 1;
+                return (
+                  <div key={edition.title} className={`relative pl-12 md:pl-0 md:flex ${right ? 'md:flex-row-reverse' : ''}`}>
+                    <div className="absolute left-[3px] md:left-1/2 md:-ml-[10px] top-2 w-5 h-5 rounded-full bg-[#FF6B35] border-4 border-[#F5F1EB] shadow-[0_0_0_4px_rgba(255,107,53,0.15)] z-10"></div>
+                    <Reveal from={right ? 'right' : 'left'} className={`md:w-1/2 ${right ? 'md:pl-14' : 'md:pr-14 md:text-right'}`}>
+                      <div className="text-sm font-bold tracking-[0.15em] text-[#FF6B35] mb-1">{edition.year}</div>
+                      <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-[#141B2D]">{edition.title}</h3>
+                      <p className="text-slate-600 mt-3 leading-relaxed">{edition.text}</p>
+                    </Reveal>
+                  </div>
+                );
+              })}
 
-            {/* Stage 3 - 2025 */}
-            <div className="relative pl-10 md:pl-0">
-              <div className="md:flex items-center justify-between group">
-                <div className="absolute -left-[10px] md:left-auto md:right-1/2 md:-mr-[10px] w-5 h-5 rounded-full bg-[#FF6B35] border-4 border-white shadow-sm transition-transform group-hover:scale-125 z-10"></div>
-                <div className="md:w-[45%] md:pr-10 md:text-right">
-                  <div className="text-lg font-bold text-[#FF6B35] mb-1">2025</div>
-                  <h3 className="text-3xl font-black text-gray-900">3° Edizione</h3>
-                  <p className="text-gray-600 mt-3 leading-relaxed">L'edizione della maturità. Livello tecnico altissimo e grande partecipazione di pubblico.</p>
-                </div>
-                <div className="hidden md:block md:w-[45%]"></div>
-              </div>
-            </div>
-
-            {/* Stage 4 - 2026 */}
-            <div className="relative pl-10 md:pl-0">
-              <div className="md:flex items-center justify-between group flex-row-reverse">
-                <div className="absolute -left-[10px] md:left-auto md:left-1/2 md:-ml-[10px] w-8 h-8 rounded-full bg-[#FF6B35] border-4 border-white shadow-lg animate-pulse z-10"></div>
-                <div className="md:w-[45%] md:pl-10 text-left">
-                  <div className="text-lg font-bold text-[#FF6B35] mb-1">Agosto 2026</div>
-                  <h3 className="text-3xl font-black text-[#FF6B35]">4° Edizione</h3>
-                  <p className="text-gray-700 mt-2 font-bold flex items-center gap-1">
-                    <MapPin size={18} /> Padel Club Alghero
-                  </p>
-                  <p className="text-gray-700 mt-3 font-medium italic text-lg leading-relaxed">La prossima edizione supererà ogni aspettativa. Alghero si prepara al grande show.</p>
-                </div>
-                <div className="hidden md:block md:w-[45%]"></div>
+              {/* Stage 4 - 2026 */}
+              <div className="relative pl-12 md:pl-0 md:flex md:flex-row-reverse">
+                <div className="absolute left-[-1px] md:left-1/2 md:-ml-[14px] top-6 w-7 h-7 rounded-full bg-[#FF6B35] border-4 border-[#F5F1EB] shadow-[0_0_0_6px_rgba(255,107,53,0.2)] animate-pulse z-10"></div>
+                <Reveal from="right" className="md:w-1/2 md:pl-14">
+                  <div className="bg-white rounded-2xl p-6 md:p-7 border border-orange-100 shadow-[0_20px_40px_-20px_rgba(255,107,53,0.35)]">
+                    <div className="text-sm font-bold tracking-[0.15em] uppercase text-[#FF6B35] mb-1">Agosto 2026</div>
+                    <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-[#FF6B35]">4° Edizione</h3>
+                    <p className="text-slate-700 mt-2 font-semibold flex items-center gap-1.5">
+                      <MapPin size={18} className="text-[#4A90E2]" /> Padel Club Alghero
+                    </p>
+                    <p className="text-slate-600 mt-3 italic text-lg leading-relaxed">La prossima edizione supererà ogni aspettativa. Alghero si prepara al grande show.</p>
+                  </div>
+                </Reveal>
               </div>
             </div>
           </div>
@@ -163,65 +158,76 @@ const OpenRiviera: React.FC = () => {
       </section>
 
       {/* Photo Grid Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-gray-900">Momenti di Gioco</h2>
-            <p className="text-gray-500 mt-4 text-lg">L'intensità e l'eleganza del padel nella cornice di Alghero.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="md:col-span-2 md:row-span-2 aspect-square md:aspect-auto h-[400px] md:h-[600px] bg-gray-100 rounded-3xl overflow-hidden group relative shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=2070&auto=format&fit=crop" 
-                alt="Padel Match Action" 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
+      <section className="py-24 bg-[#141B2D] relative overflow-hidden">
+        <div className="absolute -top-40 -left-40 w-[28rem] h-[28rem] rounded-full bg-[#4A90E2]/15 blur-3xl pointer-events-none"></div>
+        <div className="absolute -bottom-40 -right-40 w-[28rem] h-[28rem] rounded-full bg-[#FF6B35]/15 blur-3xl pointer-events-none"></div>
+        <div className="relative max-w-7xl mx-auto px-4">
+          <Reveal className="text-center mb-14">
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white uppercase">Momenti di Gioco</h2>
+            <p className="text-slate-400 mt-4 text-lg">L'intensità e l'eleganza del padel nella cornice di Alghero.</p>
+          </Reveal>
 
-            <div className="aspect-square bg-gray-100 rounded-3xl overflow-hidden group relative shadow-xl">
-              <img 
-                src="https://images.unsplash.com/photo-1626224580175-340ad0e3a736?q=80&w=600&auto=format&fit=crop" 
-                alt="Padel Detail" 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-5">
+            <Reveal from="zoom" className="md:col-span-2 md:row-span-2">
+              <div className="h-[360px] md:h-[600px] rounded-3xl overflow-hidden group relative">
+                <img
+                  src="/prova.svg"
+                  alt="Padel Match Action"
+                  className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+              </div>
+            </Reveal>
 
-            <div className="aspect-square bg-gray-100 rounded-3xl overflow-hidden group relative shadow-xl">
-              <img 
-                src="https://images.unsplash.com/photo-1613915611241-766116239f28?q=80&w=600&auto=format&fit=crop" 
-                alt="Tournament Atmosphere" 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
-            </div>
+            <Reveal from="zoom" delay={100}>
+              <div className="aspect-square rounded-3xl overflow-hidden group relative">
+                <img
+                  src="/prova.svg"
+                  alt="Padel Detail"
+                  className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
+                />
+              </div>
+            </Reveal>
 
-            <div className="md:col-span-2 aspect-video bg-gray-100 rounded-3xl overflow-hidden group relative shadow-xl">
-              <img 
-                src="https://images.unsplash.com/photo-1552667466-07770ae110d0?q=80&w=1000&auto=format&fit=crop" 
-                alt="Team Spirit" 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
-            </div>
+            <Reveal from="zoom" delay={200}>
+              <div className="aspect-square rounded-3xl overflow-hidden group relative">
+                <img
+                  src="/prova.svg"
+                  alt="Tournament Atmosphere"
+                  className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
+                />
+              </div>
+            </Reveal>
+
+            <Reveal from="zoom" delay={300} className="md:col-span-2">
+              <div className="aspect-video rounded-3xl overflow-hidden group relative">
+                <img
+                  src="/prova.svg"
+                  alt="Team Spirit"
+                  className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
+                />
+              </div>
+            </Reveal>
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center gap-6 mt-20">
-            <Button 
-              className="px-10 py-5 bg-[#FF6B35] hover:bg-[#e85a2a] text-lg"
+          <Reveal className="flex flex-col sm:flex-row justify-center gap-4 mt-14">
+            <Button
+              className="px-9 py-4"
               onClick={() => window.open('https://drive.google.com/drive/folders/17zkVviDj63Il48DaLAZXhg1Ybn_83Zh9', '_blank')}
             >
-              <Camera className="w-6 h-6 mr-2" />
+              <Camera className="w-5 h-5" />
               Galleria Completa
             </Button>
-            <Button 
-              className="px-10 py-5 bg-[#FF6B35] hover:bg-[#e85a2a] text-lg"
+            <Button
+              variant="light"
+              className="px-9 py-4"
               onClick={() => navigate(AppRoutes.WIP)}
             >
-              <Calendar className="w-6 h-6 mr-2" />
+              <Calendar className="w-5 h-5" />
               Prossima Edizione 2027
             </Button>
-          </div>
+          </Reveal>
         </div>
       </section>
     </div>

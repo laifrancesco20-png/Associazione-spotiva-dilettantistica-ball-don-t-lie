@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, Mail, Facebook, Phone } from 'lucide-react';
 import { AppRoutes } from '../types';
+import ScrollProgress from './ScrollProgress';
 
 const navItems = [
   { label: 'Home', path: AppRoutes.HOME },
@@ -15,6 +16,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
+  const [scrolled, setScrolled] = useState(false);
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -23,70 +26,99 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  // Il menu diventa più compatto e con ombra quando si scorre la pagina
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <div className="flex flex-col min-h-screen bg-[#F7FAFC] text-[#1A202C]">
+    <div className="flex flex-col min-h-screen bg-[#F5F1EB] text-[#141B2D]">
+      <ScrollProgress />
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100">
+      <header
+        className={`sticky top-0 z-50 bg-[#141B2D]/85 backdrop-blur-md border-b text-white transition-all duration-300 ${
+          scrolled ? 'border-white/10 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)]' : 'border-transparent'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className={`flex justify-between items-center transition-all duration-300 ${scrolled ? 'h-16' : 'h-20'}`}>
             {/* Logo */}
-            <Link to={AppRoutes.HOME} className="flex items-center gap-2" onClick={closeMenu}>
-              <div className="w-10 h-10 bg-[#FF6B35] rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                BDL
-              </div>
-              <span className="font-bold text-xl tracking-tight hidden sm:block">ASD Ball Don't Lie</span>
+            <Link to={AppRoutes.HOME} className="flex items-center gap-3 group" onClick={closeMenu}>
+              <img
+                src="/logo-bdl.svg"
+                alt="BDL Sports Promoters"
+                className="h-8 w-auto brightness-0 invert transition-transform duration-300 group-hover:scale-105"
+              />
+              <span className="font-extrabold text-lg tracking-tight hidden sm:block group-hover:text-[#FF6B35] transition-colors">
+                ASD Ball Don't Lie
+              </span>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex space-x-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`text-sm font-semibold transition-colors duration-200 ${
-                    location.pathname === item.path
-                      ? 'text-[#FF6B35]'
-                      : 'text-gray-600 hover:text-[#FF6B35]'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
+            <nav className="hidden md:flex items-center gap-7">
+              {navItems.map((item) => {
+                const active = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`relative py-2 text-sm font-semibold transition-colors duration-200 group ${
+                      active ? 'text-white' : 'text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    {item.label}
+                    <span
+                      className={`absolute left-0 -bottom-0.5 h-[2.5px] w-full rounded-full bg-[#FF6B35] origin-left transition-transform duration-300 ${
+                        active ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                      }`}
+                    ></span>
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* Mobile Menu Button */}
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}
-                className="text-gray-600 hover:text-[#FF6B35] focus:outline-none"
+                aria-label={isMenuOpen ? 'Chiudi menu' : 'Apri menu'}
+                className="p-2 -mr-2 rounded-full text-white hover:text-[#FF6B35] focus:outline-none"
               >
-                {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
               </button>
             </div>
           </div>
         </div>
 
         {/* Mobile Nav Overlay */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
-            <div className="px-4 pt-2 pb-6 space-y-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={closeMenu}
-                  className={`block px-3 py-3 rounded-md text-base font-medium ${
-                    location.pathname === item.path
-                      ? 'bg-orange-50 text-[#FF6B35]'
-                      : 'text-gray-700 hover:bg-gray-50'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
+        <div
+          className={`md:hidden absolute w-full bg-[#141B2D]/95 backdrop-blur-md border-b border-white/10 shadow-xl overflow-hidden transition-all duration-300 ease-out ${
+            isMenuOpen ? 'max-h-[420px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+          }`}
+        >
+          <div className="px-4 pt-2 pb-6 space-y-1">
+            {navItems.map((item, index) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={closeMenu}
+                style={{ transitionDelay: isMenuOpen ? `${index * 40}ms` : '0ms' }}
+                className={`block px-4 py-3 rounded-xl text-base font-semibold transition-all duration-300 ${
+                  isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
+                } ${
+                  location.pathname === item.path
+                    ? 'bg-[#FF6B35]/15 text-[#FF6B35]'
+                    : 'text-slate-200 hover:bg-white/5'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
-        )}
+        </div>
       </header>
 
       {/* Main Content */}
@@ -95,14 +127,13 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#1A202C] text-gray-300 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <footer className="relative bg-[#141B2D] border-t border-white/10 text-gray-300 pt-16 pb-10 overflow-hidden">
+        <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#FF6B35]/10 blur-3xl pointer-events-none"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-[#FF6B35] rounded flex items-center justify-center text-white font-bold text-sm">
-                  BDL
-                </div>
+              <div className="flex items-center gap-3 mb-4">
+                <img src="/logo-bdl.svg" alt="BDL Sports Promoters" className="h-7 w-auto brightness-0 invert" />
                 <span className="font-bold text-lg text-white">ASD Ball Don't Lie</span>
               </div>
               <p className="text-sm text-gray-400 mb-4">
@@ -111,7 +142,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </div>
             
             <div>
-              <h3 className="text-white font-semibold mb-4 uppercase text-sm tracking-wider">Contatti</h3>
+              <h3 className="text-white font-bold mb-5 uppercase text-xs tracking-[0.15em]">Contatti</h3>
               <ul className="space-y-3 text-sm">
                 <li className="flex items-center gap-2">
                   <Mail size={16} className="text-[#FF6B35]" />
@@ -129,7 +160,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </div>
 
             <div>
-              <h3 className="text-white font-semibold mb-4 uppercase text-sm tracking-wider">Social</h3>
+              <h3 className="text-white font-bold mb-5 uppercase text-xs tracking-[0.15em]">Social</h3>
               <ul className="space-y-3 text-sm">
                 <li className="flex items-center gap-2">
                   <Instagram size={16} className="text-[#FF6B35]" />
@@ -167,7 +198,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-xs text-gray-500">
+          <div className="border-t border-white/10 pt-8 text-center text-xs text-gray-500">
             <p>&copy; {new Date().getFullYear()} ASD Ball Don't Lie. Tutti i diritti riservati.</p>
           </div>
         </div>
